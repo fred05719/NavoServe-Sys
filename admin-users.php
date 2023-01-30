@@ -4,7 +4,7 @@
    <div class="card mt-4 shadow p-4 bg-white">
       <div class="d-flex mb-4 flex-row-reverse">
       <button type="button" class="btn btn-success" id="btn_new_admin">
-         <span>Add Admin</span>
+         <span>Add Adminsasaas</span>
       </button>
       </div>
       <table id="admin_user_tbl" class="table table-striped align-middle text-nowrap" style="width:100%">
