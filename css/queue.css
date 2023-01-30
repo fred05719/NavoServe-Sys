@@ -1,0 +1,17 @@
+#action_menu {
+  position: relative;
+}
+
+table .dropdown-menu {
+  position: fixed !important;
+}
+
+.action_btn_item {
+  cursor: pointer;
+}
+
+.fc-title {
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}

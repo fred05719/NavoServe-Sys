@@ -1,0 +1,38 @@
+.total-card {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  padding: 1rem;
+}
+
+.total-card .icon {
+  display: flex;
+  align-items: center;
+}
+
+.total-card .icon i {
+  font-size: 3rem;
+  vertical-align: middle;
+  color: #474747;
+}
+
+.total-card .info {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.total-card .info .number {
+  font-size: 2.5rem;
+  font-weight: 600;
+  align-self: flex-end;
+  line-height: 1;
+}
+
+.total-card .info .title {
+  font-size: 1rem;
+  align-self: flex-end;
+  font-weight: 600;
+  color: #7a7a7a;
+
+}

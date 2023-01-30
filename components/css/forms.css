@@ -1,0 +1,206 @@
+
+.form {
+  position: relative;
+  margin-top: 10px;
+}
+
+/* FORM CONTROL AND FORM SELECT */
+.text-box,
+.choice-box,
+.form-switch {
+  box-shadow: none !important;
+  border: 2px solid #a6a6a6;
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 8px;
+  padding-left: 35px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #000 !important;
+}
+
+
+.form-switch {
+  margin-top: 10px;
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.form-switch .form-check-label {
+  width: 100%;
+}
+
+.form-switch .form-check-input:focus {
+  background-color: #fff;
+  border-color: #109A5C !important;
+  box-shadow: 0 0 0 0.2rem #109a5c69;
+}
+
+.form-switch .form-check-input:checked {
+  background-color: #109A5C;
+  border-color: #109A5C;
+  box-shadow: 0 0 0 0.2rem #109a5c69;
+}
+
+.choice-box {
+  color: #141414 !important;
+}
+
+/* PLACEHOLDER */
+
+.input_label {
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  color: #a6a6a6;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-weight: 600;
+}
+
+.icon_label {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #a6a6a6;
+}
+
+.label_span {
+  padding: 3px;
+  background-color: #fff;
+}
+
+/* FORM SELECTS */
+.choice-box {
+  padding-right: 35px;
+}
+
+.select_label {
+  position: absolute;
+  color: #a6a6a6;
+  pointer-events: none;
+  top: -6px;
+  left: 10px;
+  font-size: 10px;
+}
+
+/* PLACEHOLDER FOCUS */
+
+.text-box:focus+.input_label,
+.text-box:not(:placeholder-shown)+.input_label {
+  top: 0;
+  left: 20px;
+  color: #a6a6a6;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* FORM CONTROL AND FORM SELECT FOCUS */
+
+.text-box:focus,
+.choice-box:focus {
+  border-color: #109A5C;
+}
+
+.text-box:focus+.input_label+.icon_label,
+.text-box:focus+.input_label,
+.choice-box:focus+.select_label+.icon_label,
+.choice-box:focus+.select_label {
+  color: #109A5C;
+}
+
+
+/* FORM CONTROL AND FORM SELECT INVALID FOCUS */
+.text-box.invalid:focus,
+.choice-box.invalid:focus {
+  border-color: #dc3545;
+}
+
+.text-box.invalid:focus+.input_label,
+.text-box.invalid:focus+.input_label+.icon_label,
+.choice-box.invalid:focus+.select_label,
+.choice-box.invalid:focus+.select_label+.icon_label {
+  color: #dc3545;
+}
+
+/* INPUT OPTIONS */
+
+.input_option {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  z-index: 10;
+  display: none;
+  color: rgb(98, 98, 98);
+}
+
+.clear_input {
+  font-size: 30px;
+}
+
+.show_password {
+  font-size: 20px;
+  right: 5px;
+}
+
+#login_btn {
+  background-color: #FF2929;
+  color: #fff;
+}
+
+#login_btn:hover {
+  background-color: #C00000;
+}
+
+.forgot_btn {
+  color: rgb(75, 75, 75);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.forgot_btn:hover {
+  color: rgb(17, 17, 17);
+}
+
+.err-message {
+  color: #FF2929;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.error {
+  border-color: #dc3545;
+  background-color: #ffdbdf;
+}
+
+.help-block {
+  color: #dc3545;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.invalid {
+  border-color: #dc3545;
+}
+
+.valid {
+  border-color: 109A5C;
+}
+
+table tr th {
+  font-weight: bold !important;
+}
+
+.card {
+  border-radius: 5px !important;
+}

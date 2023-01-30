@@ -1,0 +1,8 @@
+.modal-content, .modal-header {
+  border-radius: 0px !important;
+}
+
+.modal-header {
+  background-color: #109A5C;
+  color: #fff;
+}

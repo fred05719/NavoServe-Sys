@@ -1,0 +1,47 @@
+:root {
+  --fc-border-color: #b9b9b9 !important;
+  --fc-neutral-text-color: grey !important;
+  --fc-button-bg-color: #109a5ce5 !important;
+  --fc-button-border-color: #109a5ce5 !important;
+  --fc-button-hover-bg-color: #109A5C !important;
+  --fc-button-hover-border-color: #109A5C !important;
+  --fc-button-active-bg-color: #109A5C !important;
+  --fc-button-active-border-color: #109A5C !important;
+  --fc-event-text-color: #8d8d8d !important;
+}
+
+.fc .fc-toolbar-title {
+  font-weight: 800;
+}
+
+.fc .fc-col-header-cell-cushion {
+  display: inline-block;
+  padding: 2px 4px;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.fc .fc-daygrid-day-number{
+  color: #0e0e0e;
+}
+
+.fc-scrollgrid tr th {
+  background-color: #109a5c9f;
+}
+
+.fc-daygrid-dot-event .fc-event-title,
+.fc-direction-ltr .fc-daygrid-event .fc-event-time {
+  color: #0e0e0e;
+  white-space:nowrap; 
+  text-overflow: ellipsis;
+}
+
+.fc-direction-ltr .fc-list-day-text {
+  color: #0e0e0e;
+  font-weight: 600;
+}
+
+/* .fc .fc-button-primary {
+  background-color: #109A5C !important;
+  border-color: #0d7e4b !important;
+} */
