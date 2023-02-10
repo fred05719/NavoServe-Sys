@@ -14,6 +14,6 @@
          </tbody>
       </table>
    </div>
-<script src="js/mobile_user.js"></script>
+<script src="js/customers/snapshot.js"></script>
 <?php if ( $_GET["rel"]!="page") { echo "</div>"; } ?>
 <?php include_once("./components/footer.php"); ?>

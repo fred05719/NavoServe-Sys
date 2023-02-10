@@ -12,12 +12,12 @@ $(document).ready(function () {
       if (user !== null) {
         console.log(user.uid);
         if (user.emailVerified) {
-          db.collection('tbl_admins').doc(user.uid).update({verified: true})
+          db.collection('admins').doc(user.uid).update({verified: true})
           .then(()=> {
-            db.collection('tbl_admins').doc(user.uid).get().then(function (doc) {
+            db.collection('admins').doc(user.uid).get().then(function (doc) {
               $.ajax({
                 type: 'post',
-                url: 'sql/alter_admin.php',
+                url: 'sql/admins/alter.php',
                 data: {
                   'admin_id': doc.data().id,
                   'action': '_UPDATE'
@@ -53,17 +53,15 @@ $(document).ready(function () {
           }
         }, 1000);
         user.sendEmailVerification().then(function () {
-          $.alert({
-            title: 'Verification email sent',
-            content: 'Please check your inbox and follow the instructions',
-            type: 'green',
-          });
+          $('.toast').toast('show').addClass('success').removeClass('error');
+          $('#toast-icon').addClass('bxs-check-circle').removeClass('bxs-error-circle');
+          $('.toast-title').text('Verification email sent');
+          $('.toast-body').text('Please check your inbox and follow the instructions');
         }).catch((error) => {
-          $.alert({
-            title: 'Verification email not sent',
-            content: error.message,
-            type: 'red',
-          });
+          $('.toast').toast('show').addClass('error').removeClass('success');
+          $('#toast-icon').addClass('bxs-error-circle').removeClass('bxs-check-circle');
+          $('.toast-title').text('Verification email not sent');
+          $('.toast-body').text(error.message);
         });
       });
 

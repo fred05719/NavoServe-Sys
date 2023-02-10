@@ -41,6 +41,10 @@
   font-weight: 600;
 }
 
+.fc-event{
+  cursor: pointer;
+}
+
 /* .fc .fc-button-primary {
   background-color: #109A5C !important;
   border-color: #0d7e4b !important;

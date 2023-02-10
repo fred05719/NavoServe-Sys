@@ -35,27 +35,36 @@ $(document).ready(function() {
   }, 'Your password must be at least 6 characters long and contain at least one number and one char.');
 
   $.validator.addMethod('checkCloseTime', function(value, element) {
-    return this.optional(element) || (new Date(value).getTime() > new Date($('#date_open').val()).getTime())
-  }, 'Invalid date and time.');
+    return this.optional(element) || (new Date().getTime() < new Date($('#event-date').val()).getTime())
+  }, 'You can\'t set previous date.');
 
 
-  $("#new_socser_form").validate({
+  $("#event_form").validate({
     rules: {
-      socser_name: {
+      'event_name': {
         required: true
       },
-      max_appl: {
+      'max_appl': {
         required: true,
       },
-      date_open: {
+      'event-date': {
+        required: true,
+        checkCloseTime: true,
+      },
+      'event-start-time': {
         required: true,
       },
-      date_closed: {
+      'event-end-time': {
         required: true,
-        checkCloseTime: true
       },
+      'event_name': {
+        required: true
+      }
     },
     messages: {
+      event_name: {
+        required: 'Please select event name'
+      },
       socser_name: {
         required: "Please select social service."
       },

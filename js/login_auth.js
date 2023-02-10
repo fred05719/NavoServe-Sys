@@ -9,16 +9,16 @@ $(document).ready(function () {
   auth.onAuthStateChanged(user => {
     if (user !== null) {
       
-      if(user.uid == "TKjfsFGAL0Q4on7lGKe3rLAFViZ2") {
+      if(user.uid == "ASZjh8Lxj7eEhmVnO8crVcYOzBx1") {
         window.location.href = "social-service";
       }
 
-      db.collection('tbl_admins').doc(user.uid).get().then((doc) => {
+      db.collection('admins').doc(user.uid).get().then((doc) => {
 
         if (doc.exists) {
           (!user.emailVerified) ? window.location.href = 'email_verify' : window.location.href = "social-service";
         } else {
-          db.collection('mobile_users').doc(user.uid).get().then((mobileDoc) => {
+          db.collection('customers').doc(user.uid).get().then((mobileDoc) => {
             if (mobileDoc.exists) {
               loginFailed("The account is for mobile app.");
               auth.signOut();

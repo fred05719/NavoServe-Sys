@@ -49,7 +49,7 @@ $(document).ready(function () {
   }
 
   calendar = $('#calendar_socser').fullCalendar({
-    plugins: [ 'dayGrid', 'interaction' ],
+    plugins: ['dayGrid', 'interaction'],
     buttonText: {
       month: 'Grid View',
       listMonth: 'List View'
@@ -128,150 +128,9 @@ $(document).ready(function () {
     $('#calendar_socser').fullCalendar('addEventSource', events);
   });
 
-  $("#event-start-time").change(function () {  
+  $("#event-start-time").change(function () {
     $("#event-end-time").attr('min', $("#event-start-time").val())
   });
-
-
-
-  $('#save_event').click(function () {
-    var event_name = $("#event_name option:selected").text();
-    var eventDate = $("#event-date").val();
-    var eventStartTime = $("#event-start-time").val();
-    var eventEndTime = $("#event-end-time").val();
-    var event_color = $("#event_name").val();
-    var max_appl = $("#max_appl").val();
-    console.log(eventStartTime)
-
-    if ((event_color != '') && (max_appl != '')) {
-
-      db.collection('social_services').add({
-        event_name: event_name,
-        event_start_date: eventDate +' '+ eventStartTime,
-        event_end_date: eventDate +' '+ eventEndTime,
-        event_color: event_color,
-        max_appl: max_appl,
-        num_applied: 0
-      }).then(() => {
-        $.alert({
-          title: 'Success',
-          content: 'Event added successfully',
-        });
-        $('#event_entry_modal').modal('hide');
-        clearField();
-
-      }).catch((error) => {
-        $.alert({
-          title: 'Error',
-          content: error.message,
-        });
-
-      });
-
-    } else {
-      $.alert({
-        title: 'Error',
-        content: 'Please fill up all field',
-      });
-    }
-  });
-
-  $('#update_event').click(function () {
-    var event_id = $('.event_id_update').text();
-    var event_name = $("#event_name option:selected").text();
-    var event_start_date = $("#event_start_date").val();
-    var event_end_date = $("#event_end_date").val();
-    var event_color = $("#event_name").val();
-    var max_appl = $("#max_appl").val();
-
-    if ((event_color != '') && (max_appl != '')) {
-
-      db.collection('social_services').doc(event_id).update({
-        event_name: event_name,
-        event_start_date: event_start_date,
-        event_end_date: event_end_date,
-        event_color: event_color,
-        max_appl: max_appl,
-      }).then(() => {
-        $.alert({
-          title: 'Success',
-          content: 'Event has been updated',
-        });
-        $('#event_entry_modal').modal('hide');
-        clearField();
-
-      }).catch((error) => {
-        $.alert({
-          title: 'Error',
-          content: error.message,
-        });
-
-      });
-
-    } else {
-      $.alert({
-        title: 'Error',
-        content: 'Please fill up all field',
-      });
-    }
-  });
-
-
-  $('#edit_event').click(function () {
-    var event_id = $('.event_id_info').text();
-    var event_title = $('.event_title').text();
-    var max_appl = $('.max_appl_info').text();
-    var start = $('.open_date_info').text();
-    var end = $('.close_date_info').text();
-
-    $("#event_name option").filter(function () {
-      //may want to use $.trim in here
-      return $(this).text() == event_title;
-    }).prop('selected', true);
-    $("#max_appl").val(max_appl);
-    $("#event_start_date").val(moment(start).format('ddd, YYYY-MM-DD h:mm:ss A'));
-    $("#event_end_date").val(moment(end).format('ddd, YYYY-MM-DD h:mm:ss A'));
-
-    $('#view_socser_modal').modal('hide');
-    $('#save_event').css('display', 'none');
-    $('#update_event').css('display', 'block');
-    $('.event_modal_title').text('Edit event');
-    $('.event_id_update').text(event_id);
-    $('#event_entry_modal').modal('show');
-
-  });
-
-  $('#del_event').click(function () {
-    var event_id = $('.event_id_info').text();
-    $.confirm({
-      title: 'Delete event?',
-      content: "Are you sure you want to delete this event?",
-      animation: 'scale',
-      closeAnimation: 'scale',
-      animationSpeed: 200,
-      boxWidth: '300px',
-      useBootstrap: false,
-      buttons: {
-        Confirm: {
-          text: "Delete",
-          btnClass: 'btn-danger',
-          action: function () {
-            $('#view_socser_modal').modal('hide');
-            firebase.firestore().collection('social_services').doc(event_id).delete().then(() => {
-            }).catch(err => {
-              console.log('Error removing document', err);
-            });
-          }
-        },
-        cancel: function () {
-
-        },
-      }
-    });
-    console.log(event_id);
-
-  });
-
 
 
 });

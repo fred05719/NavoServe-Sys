@@ -48,18 +48,18 @@ body {
 }
 
 .wrapper .subname {
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 1.3px;
-  padding-left: 10px;
-  color: #109A5C;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #109A5C;
 }
 
 .wrapper .err_mess {
     font-size: 0.8rem;
     padding-left: 10px;
     color: #ff0000;
-  }
+}
 
 .wrapper .form-field input {
     display: block;
@@ -72,13 +72,14 @@ body {
     /* border: 1px solid red; */
 }
 
-.wrapper .form-field input:-webkit-autofill, .wrapper .form-field input:-webkit-autofill:focus{
-    -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff  !important;
+.wrapper .form-field input:-webkit-autofill,
+.wrapper .form-field input:-webkit-autofill:focus {
+    -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff !important;
     color: #666;
     background: none;
     border: none;
     outline: none;
-  }
+}
 
 .wrapper .form-field {
     position: relative;
@@ -150,7 +151,24 @@ body {
 }
 
 .spinner-border {
-width: 1.5rem;
-height: 1.5rem;
-border-width: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 3px;
+}
+
+.toast {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    z-index: 99;
+}
+
+.toast.success .toast-title,
+.toast.success .toast-header i {
+    color: #008000;
+}
+
+.toast.error .toast-title,
+.toast.error .toast-header i {
+    color: #ff0000;
 }

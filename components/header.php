@@ -63,10 +63,10 @@
 	<script src='https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js'></script>
 	<script src='https://cdn.jsdelivr.net/npm/rrule@2.6.4/dist/es5/rrule.min.js'></script>
 
-	<!-- <script src="https://momentjs.com/downloads/moment-with-locales.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js"></script>
 	<script src="https://www.unpkg.com/fullcalendar@6.0.3/index.global.js"></script>
 
-	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/luxon2@6.1.0/index.global.min.js'></script>
+	<!-- <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/luxon2@6.1.0/index.global.min.js'></script> -->
 	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@6.1.0/index.global.min.js'></script>
 	<!-- <script src="https://unpkg.com/fullcalendar-scheduler@3.10.4/dist/scheduler.js"></script> -->
 </head>

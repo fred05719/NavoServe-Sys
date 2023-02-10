@@ -8,9 +8,12 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body fs-5">
-					<span class="event_id_info d-none"></span>
+					<span class="doc_id d-none"></span>
 					<div class="d-flex flex-row">
-						<span class="fw-bold me-2">Social Serevice: </span><span class="event_title"></span>
+						<span class="fw-bold me-2">Event ID: </span><span class="event_id"></span>
+					</div>
+					<div class="d-flex flex-row">
+						<span class="fw-bold me-2">Social Service: </span><span class="event_title"></span>
 					</div>
 					<div class="d-flex flex-row">
 						<span class="fw-bold me-2">Max applicant: </span><span class="max_appl_info"></span>
@@ -23,6 +26,9 @@
 					</div>
 					<div class="d-flex flex-row">
 						<span class="fw-bold me-2">Applied Applicants: </span><span class="num_applied_info"></span>
+					</div>
+					<div class="d-flex flex-row">
+						<span class="fw-bold me-2">Status: </span><span class="event_status_info"></span>
 					</div>
 				</div>
 				<div class="modal-footer">

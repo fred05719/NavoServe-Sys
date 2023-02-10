@@ -6,3 +6,20 @@
   background-color: #109A5C;
   color: #fff;
 }
+
+.toast {
+  /* position: absolute; */
+  right: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.toast.success {
+  background-color: #00800031;
+  color: #008000;
+}
+
+.toast.error {
+  background-color: #fc000041;
+  color: #ff0000;
+}
