@@ -3,11 +3,11 @@
 @include '../connection.php';
 
   $action = $_POST['action'];
-  $id = $_POST['event_id'];
+  $id = $_POST['socser_id'];
 
   if($action == '_DELETE') {
 
-    $sql = "DELETE FROM `soc_services` WHERE `socserID` = '$id'";
+    $sql = "DELETE FROM `soc_services` WHERE `socser_id` = '$id'";
     $result = $conn->query($sql);
     if ($result === TRUE) {
         echo "SUCCESS";

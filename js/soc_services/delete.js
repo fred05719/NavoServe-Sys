@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
   $('#del_event').click(function () {
-    var doc_id = $('.doc_id').text();
-    var event_id = $('.event_id').text();
+    var socser_id = $('.socser_id').text();
     $.confirm({
       title: 'Delete event?',
       content: "Are you sure you want to delete this event?",
@@ -23,13 +22,13 @@ $(document).ready(function () {
               type: 'post',
               url: 'sql/soc_services/alter.php',
               data: {
-                'event_id': event_id,
+                'socser_id': socser_id,
                 'action': '_DELETE'
               },
               success: function (data) {
                 console.log(data);
                 if (data == 'SUCCESS') {
-                  firebase.firestore().collection('soc_services').doc(doc_id).delete().then(() => {
+                  firebase.firestore().collection('soc_services').doc(socser_id).delete().then(() => {
                     $('#view_socser_modal').modal('hide');
                     $('.toast').toast('show').addClass('success').removeClass('error');
                     $('.toast-body').text('Event has been deleted.');

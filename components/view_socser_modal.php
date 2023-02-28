@@ -4,14 +4,11 @@
 		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h6 class="modal-title event_modal_title" id="modalLabel">Social service information</h6>
+					<h5 class="modal-title" id="modalLabel"><span class="fw-bold me-2">Event ID: </span><span class="socser_id"></span></h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body fs-5">
 					<span class="doc_id d-none"></span>
-					<div class="d-flex flex-row">
-						<span class="fw-bold me-2">Event ID: </span><span class="event_id"></span>
-					</div>
 					<div class="d-flex flex-row">
 						<span class="fw-bold me-2">Social Service: </span><span class="event_title"></span>
 					</div>

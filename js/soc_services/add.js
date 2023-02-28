@@ -12,23 +12,26 @@ $(document).ready(function () {
 
   $("#event_form").submit(function (e) {
     e.preventDefault();
+    
     var event_name = $("#event_name option:selected").text();
     var max_appl = $("#max_appl").val();
     var eventDate = $("#event-date").val();
     var eventStartTime = $("#event-start-time").val();
     var eventEndTime = $("#event-end-time").val();
     var event_color = $("#event_name").val();
-
+    
     if ($("#event_form").valid()) {
+      console.log('SUBMIT');
 
       db.collection("entry_count").doc("soc_services").get().then((doc) => {
         var count = doc.data().count;
         var newCount = count + 1;
 
-        var id = 'SID' + ((newCount).toString().padStart(6, 0));
-        console.log(id)
+        // var code = 'SID' + ((newCount).toString().padStart(6, 0));
+        // console.log(id)
         var formData = new FormData();
-        formData.append('id', id);
+        // formData.append('id', newCount);
+        // formData.append('code', code);
         formData.append('event_name', event_name);
         formData.append('max_appl', max_appl);
         formData.append('date_start', eventDate + ' ' + eventStartTime);
@@ -43,11 +46,11 @@ $(document).ready(function () {
           data: formData,
           processData: false,
           contentType: false,
+          dataType: "json",
           success: function (data) {
-            console.log(data);
-            if (data == 'SUCCESS') {
-              db.collection('soc_services').add({
-                socserID: formData.get('id'),
+            if (data.status == 'SUCCESS') {
+              console.log(data.status);
+              db.collection('soc_services').doc(data.id).set({
                 event_name: formData.get('event_name'),
                 max_appl: formData.get('max_appl'),
                 date_start: formData.get('date_start'),
@@ -66,12 +69,14 @@ $(document).ready(function () {
                 $('#event_entry_modal').modal('hide');
                 $('.toast').toast('show').addClass('error').removeClass('success');
                 $('.toast-body').text(error.message);
+                clearField();
 
               });
             } else {
               $('#event_entry_modal').modal('hide');
               $('.toast').toast('show').addClass('error').removeClass('success');
               $('.toast-body').text('Error has occured. Event not added');
+              clearField();
             }
           }
         });

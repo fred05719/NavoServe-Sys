@@ -38,7 +38,7 @@ $(document).ready(function () {
       listMonth: 'List View'
     },
     initialView: 'dayGridMonth',
-    navLinks: true, // can click day/week names to navigate views
+    navLinks: false, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: false,
     selectable: true,
@@ -57,15 +57,14 @@ $(document).ready(function () {
     eventClick: function (info) {
       console.log(info.event);
       var avail = info.event.extendedProps.event_status;
-        $('#view_socser_modal').modal('show');
-        $('.doc_id').text(info.event.extendedProps.doc_id);
-        $('.event_id').text(info.event.extendedProps.event_id);
-        $('.event_title').text(info.event.title);
-        $('.max_appl_info').text(info.event.extendedProps.max_appl);
-        $('.open_date_info').text(moment(info.event.start).format('llll'));
-        $('.close_date_info').text(moment(info.event.end).format('llll'));
-        $('.num_applied_info').text(info.event.extendedProps.num_appl);
-        $('.event_status_info').text(avail == 'true' ? 'ONLINE' : 'OFFLINE');
+      $('.socser_id').text(info.event.extendedProps.socser_id);
+      $('.event_title').text(info.event.title);
+      $('.max_appl_info').text(info.event.extendedProps.max_appl);
+      $('.open_date_info').text(moment(info.event.start).format('llll'));
+      $('.close_date_info').text(moment(info.event.end).format('llll'));
+      $('.num_applied_info').text(info.event.extendedProps.num_appl);
+      $('.event_status_info').text(avail == 'true' ? 'ONLINE' : 'OFFLINE');
+      $('#view_socser_modal').modal('show');
     },
     events: events,
   });
@@ -76,7 +75,7 @@ $(document).ready(function () {
   db.collection('soc_services').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
       var socser = change.doc.data();
-      var doc_id = change.doc.id;
+      // var doc_id = change.doc.id;
 
       if (change.type === 'removed') {
         removeObjectWithId(events, change.doc.id);
@@ -85,8 +84,7 @@ $(document).ready(function () {
       if (change.type === 'modified') {
         removeObjectWithId(events, change.doc.id);
         events.push({
-          doc_id: doc_id,
-          event_id: socser.socserID,
+          socser_id: change.doc.id,
           title: socser.event_name,
           start: socser.date_start,
           end: socser.date_end,
@@ -99,12 +97,11 @@ $(document).ready(function () {
 
       if (change.type === 'added') {
         events.push({
-          doc_id: doc_id,
-          event_id: socser.socserID,
+          socser_id: change.doc.id,
           title: socser.event_name,
           start: socser.date_start,
           end: socser.date_end,
-          color: (socser.event_color).replace('0xFF', '#'),
+          color: (socser.event_color == !'') ? (socser.event_color).replace('0xFF', '#') : null,
           max_appl: socser.max_appl,
           num_appl: socser.num_appl,
           event_status: socser.event_status,

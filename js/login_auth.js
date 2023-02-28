@@ -1,6 +1,8 @@
 $(document).ready(function () {
   const db = firebase.firestore();
   const auth = firebase.auth();
+  const SUPERADMIN_EMAIL = 'superadmin@navoserve.com'
+  const SUPERADMIN_UID = 'superadmin@navoserve.com'
 
   var errorCount = 0;
   getLocalTimer();
@@ -9,7 +11,7 @@ $(document).ready(function () {
   auth.onAuthStateChanged(user => {
     if (user !== null) {
       
-      if(user.uid == "ASZjh8Lxj7eEhmVnO8crVcYOzBx1") {
+      if(user.email == SUPERADMIN_EMAIL || user.uid == SUPERADMIN_UID) {
         window.location.href = "social-service";
       }
 
