@@ -75,7 +75,10 @@ $(document).ready(function () {
     errorCount++;
     $("#password").val('');
     $('#login-btn').html('Login');
-    $(".err_mess").text(errorMessage);
+    $('.toast').toast('show').addClass('error').removeClass('success');
+    $('#toast-icon').addClass('bxs-error-circle').removeClass('bxs-success-circle');
+    $('.toast-title').text('Login Failed');
+    $('.toast-body').text(errorMessage);
 
     if (errorCount > 3) {
       errorCount = 0;
@@ -96,8 +99,13 @@ $(document).ready(function () {
       }, 1000);
 
       $.alert({
-        title: 'Error',
-        content: 'We temporarily disable your login. Please contact the administrator to register your account',
+        title: 'Too many failed attempt',
+        type: 'red',
+        typeAnimated: true,
+        columnClass: 'small',
+        animateFromElement: true,
+        icon: 'bx bxs-error-circle',
+        content: '<span>We temporarily disable your login. Click </span><a href="forgot_password">Forgot Password</a><span> or contact the administrator to register your account</span>',
       });
     }
   }

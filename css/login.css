@@ -172,3 +172,13 @@ body {
 .toast.error .toast-header i {
     color: #ff0000;
 }
+
+.jconfirm-title {
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: #e74c3c;
+}
+
+.jconfirm-content div {
+    font-size: 0.9rem;
+}

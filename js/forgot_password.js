@@ -20,24 +20,21 @@ $(document).ready(function () {
             $('#btn_forgot_confirm').text('Resend');
           }
         }, 1000);
-        $.alert({
-          title: 'Password reset email sent',
-          content: 'Please check your inbox and follow the instructions',
-          type: 'green',
-        });
+        $('.toast').toast('show').addClass('success').removeClass('error');
+        $('#toast-icon').addClass('bxs-check-circle').removeClass('bxs-error-circle');
+        $('.toast-title').text('Password reset email sent');
+        $('.toast-body').text('Please check your inbox and follow the instructions');
       }).catch((error) => {
-        $.alert({
-          title: 'Password reset email not sent',
-          content: error.message,
-          type: 'red',
-        });
+        $('.toast').toast('show').addClass('error').removeClass('success');
+        $('#toast-icon').addClass('bxs-error-circle').removeClass('bxs-check-circle');
+        $('.toast-title').text('Password reset email not sent');
+        $('.toast-body').text(error.message);
       });
     } else {
-      $.alert({
-        title: 'Password reset email not sent',
-        content: 'This field can\'t be empty. Please enter your email',
-        type: 'red',
-      });
+      $('.toast').toast('show').addClass('error').removeClass('success');
+      $('#toast-icon').addClass('bxs-error-circle').removeClass('bxs-check-circle');
+      $('.toast-title').text('Password reset email not sent');
+      $('.toast-body').text('This field can\'t be empty. Please enter your email');
     }
 
   });
